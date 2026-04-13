@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -29,12 +27,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Generate CHANGELOG
-        id: changelog
-        uses: metcalfc/changelog-generator@v4
-        with:
-          myToken: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Build Tauri app
         uses: tauri-apps/tauri-action@v0
         env:
@@ -43,6 +35,6 @@ jobs:
         with:
           tagName: ${{ github.ref_name }}
           releaseName: 'gh-ci v${{ github.ref_name }}'
-          releaseBody: ${{ steps.changelog.outputs.changelog }}
+          releaseBody: 'Automated release'
           releaseDraft: false
           prerelease: false
