@@ -1,7 +1,27 @@
-# Tauri + React + Typescript
+# gh-ci
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+A Tauri desktop application for learning GitHub Actions CI/CD and auto-update.
 
-## Recommended IDE Setup
+## Features
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+- GitHub Actions CI/CD workflow
+- Tauri auto-update support
+- Windows installer (NSIS, MSI)
+
+## Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Run in development mode
+pnpm tauri dev
+
+# Build for production
+pnpm tauri build
+```
+
+## CI/CD
+
+- **CI**: Runs on every push to `main` branch
+- **Release**: Triggers on git tag push (`v*.*.*`)
